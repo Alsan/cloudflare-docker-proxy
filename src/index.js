@@ -8,16 +8,16 @@ const dockerHub = "https://registry-1.docker.io";
 const routes = {
   // production
   "docker.alsan-nvpc.org": dockerHub,
-  "quay.libcuda.so": "https://quay.io",
-  "gcr.libcuda.so": "https://gcr.io",
-  "k8s-gcr.libcuda.so": "https://k8s.gcr.io",
-  "k8s.libcuda.so": "https://registry.k8s.io",
-  "ghcr.libcuda.so": "https://ghcr.io",
-  "cloudsmith.libcuda.so": "https://docker.cloudsmith.io",
-  "ecr.libcuda.so": "https://public.ecr.aws",
+  "quay.alsan-nvpc.org": "https://quay.io",
+  "gcr.alsan-nvpc.org": "https://gcr.io",
+  "k8s-gcr.alsan-nvpc.org": "https://k8s.gcr.io",
+  "k8s.alsan-nvpc.org": "https://registry.k8s.io",
+  "ghcr.alsan-nvpc.org": "https://ghcr.io",
+  "cloudsmith.alsan-nvpc.org": "https://docker.cloudsmith.io",
+  "ecr.alsan-nvpc.org": "https://public.ecr.aws",
 
   // staging
-  "docker-staging.libcuda.so": dockerHub,
+  "docker-staging.alsan-nvpc.org": dockerHub,
 };
 
 function routeByHosts(host) {
@@ -115,7 +115,7 @@ async function handleRequest(request) {
       return Response.redirect(redirectUrl, 301);
     }
   }
-  // foward requests
+  // forward requests
   const newUrl = new URL(upstream + url.pathname);
   const newReq = new Request(newUrl, {
     method: request.method,
